@@ -1,0 +1,8 @@
+#!/bin/bash
+
+file=$1
+
+cat $file > $file".temp"
+printf "\xEF\xBB\xBF" > $file
+cat $file".temp" >> $file
+rm $file".temp"
